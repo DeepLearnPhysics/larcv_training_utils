@@ -317,7 +317,6 @@ class trainercore(object):
         '''Helper function to build the filepath of a model for saving and restoring:
         
         '''
-<<<<<<< HEAD
         # Find the base path of the log directory
         if FLAGS.CHECKPOINT_DIRECTORY == None:
             file_path= FLAGS.LOG_DIRECTORY  + "/checkpoints/"
@@ -328,19 +327,7 @@ class trainercore(object):
         name = file_path + 'model-{}.ckpt'.format(self._global_step)
         checkpoint_file_path = file_path + "checkpoint"
 
-=======
 
-        # Find the base path of the log directory
-        if FLAGS.CHECKPOINT_DIRECTORY == None:
-            file_path= FLAGS.LOG_DIRECTORY  + "/checkpoints/"
-        else:
-            file_path= FLAGS.CHECKPOINT_DIRECTORY  + "/checkpoints/"
-
-
-        name = file_path + 'model-{}.ckpt'.format(self._global_step)
-        checkpoint_file_path = file_path + "checkpoint"
-
->>>>>>> master
         return name, checkpoint_file_path
 
 
