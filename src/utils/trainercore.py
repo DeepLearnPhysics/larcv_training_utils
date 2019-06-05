@@ -219,7 +219,6 @@ class trainercore(object):
     def restore_model(self):
         ''' This function attempts to restore the model from file
         '''
-
         _, checkpoint_file_path = self.get_model_filepath()
 
         if not os.path.isfile(checkpoint_file_path):
@@ -234,10 +233,15 @@ class trainercore(object):
                     print("Restoring weights from ", chkp_file)
                     break
 
+
+
+        return self.restore_from_file(chkp_file)
+
+    def restore_from_file(self. checkpoint_file):
+        # Take a checkpoint file and open it and restore it
         state = torch.load(chkp_file)
         return state
-
-
+        
     def load_state(self, state):
 
         self._net.load_state_dict(state['state_dict'])
@@ -312,8 +316,8 @@ class trainercore(object):
     def get_model_filepath(self):
         '''Helper function to build the filepath of a model for saving and restoring:
         
-        
         '''
+<<<<<<< HEAD
         # Find the base path of the log directory
         if FLAGS.CHECKPOINT_DIRECTORY == None:
             file_path= FLAGS.LOG_DIRECTORY  + "/checkpoints/"
@@ -324,6 +328,19 @@ class trainercore(object):
         name = file_path + 'model-{}.ckpt'.format(self._global_step)
         checkpoint_file_path = file_path + "checkpoint"
 
+=======
+
+        # Find the base path of the log directory
+        if FLAGS.CHECKPOINT_DIRECTORY == None:
+            file_path= FLAGS.LOG_DIRECTORY  + "/checkpoints/"
+        else:
+            file_path= FLAGS.CHECKPOINT_DIRECTORY  + "/checkpoints/"
+
+
+        name = file_path + 'model-{}.ckpt'.format(self._global_step)
+        checkpoint_file_path = file_path + "checkpoint"
+
+>>>>>>> master
         return name, checkpoint_file_path
 
 
